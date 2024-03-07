@@ -20,4 +20,4 @@ plot(flowers, insects, pch=19)
 # per variare la dimensione dei punti, symbol dimensions tramite cex (2 vuol dire che raddoppiano di grandezza, con .5 dimezzo i punti)
 plot(flowers, insects, pch=19, cex=2)
 # cambio il colore con col e le virgolette
-plot(flowers, insects, pch=19, cex=2, col="chocolate1")
+plot(flowers, insects, pch=19, cex=2, col="chocolate1") #ciao
