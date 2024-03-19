@@ -55,18 +55,28 @@ plot(b4, col=clg)
 plot(b8, col=clg)
 
 # Considero le immagini come facenti parte di un unico array
-stacksent <- c(b2, b3, b4, b8)
+stacksent <- c(b2, b3, b4, b8) # mi mette le 4 immagini insieme
 plot(stacksent, col=clg)
 
-# Plotto solo un elemento specifico dell'array --> selezione l'elemento con la parentesi quadre
+# Plotto solo un elemento specifico dell'array: selezione l'elemento con la parentesi quadre
 # Uso 2 parentesi quadre perchè sto lavorando con una matrice
-# Plotto solo il quarto elemento --> banda 8
+# Plotto solo il quarto elemento: banda 8 che è solo l'infrarosso
 plot(stacksent[[4]], col=clg)
 
-# Anniento l'immagine precedente --> dev.off()
+# Anniento l'immagine precedente: dev.off()
 # Cancello il comando par() precedente
 dev.off()
 
+# RGB plotting
+# b2 --> banda del blu --> stacksent[[1]]=b2=blu
+# b3 --> banda del verde --> stacksent[[2]]=b3=verde
+# b4 --> banda del rosso --> stacksent[[3]]=b4=rosso
+# b8 --> banda del infrarosso vicino --> stacksent[[4]]=b8=infrarosso vicino
+
+# funzione im.plotRGB(immagine), vado ad associare ad ogni banda un colore e quindi un numero (3,2,1)
+im.plotRGB(stacksent,3,2,1) #3=rosso, 2=verde, blu=1
+#al posto del rosso e quindi di 3 nel codice mettiamo la banda dell'infrarosso vicino che è 4
+im.plotRGB(stacksent,4,2,1) # dall'immagine si vede meglio la vegetazione, l'infrarosso potenzia la visione
 
 # Exercise: plot in a multiframe the bands with different color ramps
 par(mfrow=c(2,2))
