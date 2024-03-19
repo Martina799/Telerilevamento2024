@@ -104,6 +104,10 @@ im.plotRGB(stacksent,4,2,1) # infrarosso nel rosso
 im.plotRGB(stacksent,3,4,2) # infrarosso nel verde
 im.plotRGB(stacksent,3,2,4) # infrarosso nel blu
 
+# SCATTERPLOT MATRICES: grafico plotta correlazioni a matrice
+# noi utilizziamo le immagini e vediamo la correlazione 
+pairs(stacksent) # nel grafico abbiamo in diagonale la distribuzione dei dati, il grafico ci fa vedere la correlazione
+# di ogni pixel banda per banda. il numero è l'indice di correlazione di Pearson 
 
 
 clb <- colorRampPalette(c("dark blue", "blue", "light blue")) (100)
