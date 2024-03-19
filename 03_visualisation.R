@@ -78,8 +78,9 @@ im.plotRGB(stacksent,3,2,1) #3=rosso, 2=verde, blu=1
 #al posto del rosso e quindi di 3 nel codice mettiamo la banda dell'infrarosso vicino che è 4
 im.plotRGB(stacksent,4,2,1) # dall'immagine si vede meglio la vegetazione, l'infrarosso potenzia la visione
 
+# ESERCIZIO: mettiamo due immagini quella normale e quella all'infrarosso una accanto all'altra
 # Exercise: plot in a multiframe the bands with different color ramps
-par(mfrow=c(2,2))
+par(mfrow=c(1,2)) # il primo numero è il numero delle righe, il secondo delle colonne
 
 clb <- colorRampPalette(c("dark blue", "blue", "light blue")) (100)
 plot(b2, col=clb)
