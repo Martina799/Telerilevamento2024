@@ -82,6 +82,30 @@ im.plotRGB(stacksent,4,2,1) # dall'immagine si vede meglio la vegetazione, l'inf
 # Exercise: plot in a multiframe the bands with different color ramps
 par(mfrow=c(1,2)) # il primo numero è il numero delle righe, il secondo delle colonne
 
+dev.off()
+# plotto 3 immagini una a fianco all'altra
+im.plotRGB(stacksent, 4, 3, 2)
+par(mfrow=c(1,3))
+im.plotRGB(stacksent,3,2,1) # colori naturali
+im.plotRGB(stacksent,4,2,1) # infrarosso nel rosso
+im.plotRGB(stacksent,4,3,2) # infrarosso e cambio le due bande, scalato tutto. questo schema spesso viene utilizzato 
+
+dev.off()
+
+#nir on green
+im.plotRGB(stacksent,3,4,2) # infrarosso nel verde, si vede molto bene la vegetazione 
+#nir on blue
+im.plotRGB(stacksent,3,2,4) # infrarosso nel blu
+
+#ESERCIZIO, mettere le 4 immagini insieme 
+par(mfrow=c(2,2))
+im.plotRGB(stacksent,3,2,1) # colori naturali
+im.plotRGB(stacksent,4,2,1) # infrarosso nel rosso
+im.plotRGB(stacksent,3,4,2) # infrarosso nel verde
+im.plotRGB(stacksent,3,2,4) # infrarosso nel blu
+
+
+
 clb <- colorRampPalette(c("dark blue", "blue", "light blue")) (100)
 plot(b2, col=clb)
 
