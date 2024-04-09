@@ -38,7 +38,7 @@ m2006c <- im.classify(m2006, num_clusters=2)
 # class 1 = human
 # class 2 = forest
 
-# frequencies
+# frequencies --> frequnza: calcolo il numero di pixel di suolo o di foresta
 f1992 <- freq(m1992c)
 
 # proportions
