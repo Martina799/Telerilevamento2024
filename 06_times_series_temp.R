@@ -1,24 +1,29 @@
 # time series analysis
+# secondo metodo per quantificare i cambiamenti nel tempo (il primo si basava sulla classificazione)
 
 library(imageRy)
 library(terra)
 
 im.list()
 
-# import the data
+# import the data: EN = European Nitrogen da gennaio (01) a marzo (13)
 EN01 <- im.import("EN_01.png")
 EN13 <- im.import("EN_13.png")
 
-par(mfrow=c(2,1))
-im.plotRGB.auto(EN01)
+par(mfrow=c(2,1)) # se metti .auto, prende in automatico la prima, seconda e terza banda
+im.plotRGB.auto(EN01) # si vede la differenza tra gennaio e marzo 2020
 im.plotRGB.auto(EN13)
 
-# using the first element (band) of images
-dif = EN01[[1]] - EN13[[1]]
+# fino ad adesso abbiamo importato delle immagini con 3 bande, facciamo ora la differenza tra due layer di due anni diversi (es: differenza tra i livelli 1
+# delle due immagini, l'importante che siano della stessa banda)
+# using the first element (band) of images --> differenza tra le due immagini
+dif = EN01[[1]] - EN13[[1]] # seleziono la prima banda
 
 # palette
-cldif <- colorRampPalette(c("blue", "white", "red")) (100)
-plot(dif, col=cldif)
+cldif <- colorRampPalette(c("blue", "white", "red")) (100) # 100 numero di gradazioni
+plot(dif, col=cldif) # ci dice quali punti dell'Europa hanno subito un cambiamento maggiore
+
+dev.off() # visualizza l'immagine grande (devo rimettere su R le stringhe 23 e 24)
 
 
 ### New example: temperature in Greenland
