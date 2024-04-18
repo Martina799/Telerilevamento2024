@@ -27,6 +27,11 @@ plotRGB(eclissi, 1, 2, 3)
 dif = eclissi[[1]] - eclissi [[2]] # utile per fare delle analisi di differenza tra le due immagini
 plot(dif)
 
+#immagine a caso esempio
+foraminiferi <- rast("Foraminiferi.png")
+plotRGB(foraminiferi, 1, 2, 3)
+plotRGB(foraminiferi, 2, 1, 3)
+
 # esempio del prof
 naja <- rast("najafiraq_etm_2003140_lrg.jpg")  # like in im.import()
 
