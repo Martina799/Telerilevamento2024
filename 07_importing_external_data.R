@@ -1,6 +1,8 @@
 # How to import external data in R
 
 library(terra)
+library(RNetCDF)
+library(ncdf4)
 
 # set the working directory based on your path: --> è la cartella dove stiamo lavorando, prendendo come esempio l'immagine dell'eclissi salvata (tasto dx e proprietà sull'immagine)
 # setwd("youtpath") --> funzione del set della cartella di lavoro
@@ -31,6 +33,26 @@ plot(dif)
 foraminiferi <- rast("Foraminiferi.png")
 plotRGB(foraminiferi, 1, 2, 3)
 plotRGB(foraminiferi, 2, 1, 3)
+
+
+
+# pacchetto per poter leggere i dati di Copernicus.nc🌍
+install.packages("ncdf4")
+library(ncdf4)
+
+install.packages("RNetCDF")
+library(RNetCDF)
+
+soil <- rast("c_gls_SSM1km_202404160000_CEURO_S1CSAR_V1.2.1.nc")
+plot(soil[[1]])
+
+# CROP --> ritaglio dei dati
+ext <- c(25, 35, 58, 62) # i dati sono l'estensione del mio ritaglio, in pratica guardo nell'immagine i numeri in x e y per latitudine e longitudine
+soilcrop <- crop(soil, ext)
+plot(soilcrop)
+plot(soilcrop[[1]])
+
+
 
 # esempio del prof
 naja <- rast("najafiraq_etm_2003140_lrg.jpg")  # like in im.import()
