@@ -19,22 +19,32 @@ im.plotRGB(sent, 1, 2, 3) # con questo plot in celeste abbiamo suolo nudo, in ro
 # infrarosso messo sul verde
 im.plotRGB(sent, r=2, g=1, b=3) # posso scrivere la stessa cosa così usando le lettere 
 
+
+
 # Calcoliamo ora la variabilità spettrale
-nir <- sent[[1]]
-cl <- colorRampPalette(c("black", "blue", "green", "yellow"))(4)
+
+# NB --> la variabilità si calcola su una variabile quindi su una sola banda!
+# scegliamo la banda: PRENDIAMO IL VICINO INFRAROSSO
+
+nir <- sent[[1]] # doppia parentesi quadra per riferirsi all'elemento che consideriamo, ovvero la banda nir 1
+cl <- colorRampPalette(c("red", "orange", "yellow"))(3) # associamo colori diversi all'immagine, cambio i colori alle singole bande
 plot(nir, col=cl)
 
-sd3 <- focal(nir, matrix(1/9, 3, 3), fun=sd)
+# funzione FOCAL: tira fuori delle statistiche all'interno di un gruppo di valori (definisce finestra e funzione che vogliamo usare)
+sd3 <- focal(nir, matrix(1/9, 3, 3), fun=sd) # definisco da sx a dx: funzione, nome immagine, definisco matrice (vettore bidimensionale)
+# matrix(1/9,3,3) --> 9 = numero, 3x3 matrice, 1/9 è uno su 9 pixel (definisce il numero associato alla matrice)
+# fun=sd: indico che la funzione che voglio utilizzare è la deviazione standard
 plot(sd3)
 
-viridisc <- colorRampPalette(viridis(7))(256)
+# usiamo un pacchetto che permette di utilizzare una palette per daltonici
+viridisc <- colorRampPalette(viridis(7))(256) # con 7 si intende la settima di una serie di palette disponibili, 256: sfumature disponibili
 plot(sd3, col=viridisc)
 
 # Standard deviation 7x7
 sd7 <- focal(nir, matrix(1/49, 7, 7), fun=sd)
 plot(sd7, col=viridisc)
 
-# stack
+# stack: mettiamo le devizioni standard tutte insieme)
 stacksd <- c(sd3, sd7)
 plot(stacksd, col=viridisc)
 
@@ -43,3 +53,4 @@ sd13 <- focal(nir, matrix(1/169, 13, 13), fun=sd)
 
 stacksd <- c(sd3, sd7, sd13)
 plot(stacksd, col=viridisc)
+# finestre di calcolo più grandi avremo una deviazione standard più alta, le immagini vengono fuori più "sfocate"
