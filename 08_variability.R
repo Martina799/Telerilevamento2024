@@ -54,3 +54,4 @@ sd13 <- focal(nir, matrix(1/169, 13, 13), fun=sd)
 stacksd <- c(sd3, sd7, sd13)
 plot(stacksd, col=viridisc)
 # finestre di calcolo più grandi avremo una deviazione standard più alta, le immagini vengono fuori più "sfocate"
+# non c'è una finestra più giusta, la finestra dipende semplicemente dal tipo dell'analisi che sto facendo
