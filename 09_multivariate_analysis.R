@@ -1,6 +1,7 @@
 # how to make multivariate analysis in R with remote sensing data
 
 # im.pca funzione che andremo ad utilizzare --> compatta il set in poche dimensioni e restituisce le componenti
+# PCA portare la l'immagine con tante bande a una sola
 
 library(terra)
 library(imageRy)
@@ -38,6 +39,18 @@ pairs(sentdo) # ci dice quanto le bande sono correlate tra di loro --> in genera
 # pcmap <- predict(sentdo, pca, index=c(1:4))
 
 pcimage <- im.pca(sentdo)
+
+
+# [1] 1552.56446  646.51287   47.47171   28.33535
+tot <- sum(1552.56446, 646.51287, 47.47171, 28.33535)
+1552.56446*100 / tot # faccio questo calcolo per ogni numero ottenuto e ottengo la percentuale
+# dal primo numero viene fuori che la variabile è 68%
+
+
+plot(pcimage, col=viridis(100)) # 100 è la sfumatura
+
+plot(pcimage, col=magma(100))
+
 
 # [1] 1719.25654  626.98962   54.63642   34.92315
 tot <- sum(1719.25654,626.98962,54.63642,34.92315)
