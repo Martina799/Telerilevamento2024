@@ -1,21 +1,26 @@
 # how to make multivariate analysis in R with remote sensing data
 
+# im.pca funzione che andremo ad utilizzare --> compatta il set in poche dimensioni e restituisce le componenti
+
 library(terra)
 library(imageRy)
 library(viridis) # for the final plot
 
-im.list()
+im.list() # lista delle immagini/dati
 
-b2 <- im.import("sentinel.dolomites.b2.tif")  
-b3 <- im.import("sentinel.dolomites.b3.tif")  
-b4 <- im.import("sentinel.dolomites.b4.tif")  
-b8 <- im.import("sentinel.dolomites.b8.tif")  
+# andiamo ad utilizzare le immagini di sentinel delle dolomiti
+b2 <- im.import("sentinel.dolomites.b2.tif")  # banda numero 2 --> blu
+b3 <- im.import("sentinel.dolomites.b3.tif")  # banda numero 3 --> verde
+b4 <- im.import("sentinel.dolomites.b4.tif")  # banda numero 4 --> rosso
+b8 <- im.import("sentinel.dolomites.b8.tif")  # banda numero 8 --> NIR, infrarosso vicino
 
-sentdo <- c(b2, b3, b4, b8)
+# mettiamo insieme tutte le bande per comporre l'immagine
+sentdo <- c(b2, b3, b4, b8) # c --> concatenate, metto insieme le 4 bande 
 
-im.plotRGB(sentdo, 4, 3, 2)
+im.plotRGB(sentdo, 4, 3, 2) # visualizzo l'immagine, metto le 3 bande che ci interessano RED, GREEN, BLUE, l'immagine viene rossa NIR su red
+im.plotRGB(sentdo, 3, 4, 2) # immagine verde, NIR su green
 
-pairs(sentdo)
+pairs(sentdo) # ci dice quanto le bande sono correlate tra di loro --> in generale ci dice la correlazione delle variabili
 
 # PCA
 
