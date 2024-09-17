@@ -1,7 +1,7 @@
 # How to import external data in R
 
 library(terra)
-library(RNetCDF)
+library(RNetCDF) # pacchetto necessario per leggere i dati di Copernicus
 library(ncdf4)
 
 # set the working directory based on your path: --> è la cartella dove stiamo lavorando, prendendo come esempio l'immagine dell'eclissi salvata (tasto dx e proprietà sull'immagine)
