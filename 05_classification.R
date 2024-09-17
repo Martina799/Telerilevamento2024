@@ -6,8 +6,8 @@
 
 library(terra)
 library(imageRy)
-library(ggplot2)
-library(patchwork)
+library(ggplot2) # pacchetto per la visualizzazione dei dati, per creare grafici in modo semplice
+library(patchwork) # pacchetto che permette la composizione di grafici in R più semplice
 
 im.list()
 
