@@ -11,7 +11,8 @@ install.packages("terra") # funzione per installare i pacchetti install.packages
 # se voglio rimuovere un pacchetto utilizzo: remove.packages()
 library(terra)
 
-install.packages("devtools")
+install.packages("devtools") # pacchetto R che facilita l'installazione di altri pacchetti
+# di R da github e altre repositories
 library(devtools) 
 
 # install the imageRy package from GitHub: install_github, serve aver installato devtools che è sul CRAN
