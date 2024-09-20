@@ -73,9 +73,26 @@ plot(stackdif, col=viridisc)
 
 
 # CLASSIFICAZIONE
-
+par(mfrow=c(1,2))
 mS2023c <- im.classify(set2023N, num_clusters=2)
 mS2024c <- im.classify(set2024N, num_clusters=2)
 
-stackcl <- c(set2023N[[1]], mS2023c[[1]], set2024N[[1]], mS2024c[[1]])
-plot(stackcl)
+# Settembre 2023:
+# Calcolo la frequenza, numero di pixel per ogni classe 
+fS2023 <- freq(mS2023c)
+fS2023
+# Calcolo proporzione numero di pixel rispetto al totale e percentuale
+totS2023 <- ncell(mS2023c) # calcolo del totale
+totS2023
+propS2023 = fS2023 / totS2023 # frequenza diviso tot
+percS2023 = propS2023 * 100 # percentuale
+
+# Settembre 2024:
+# Calcolo la frequenza, numero di pixel per ogni classe 
+fS2024 <- freq(mS2024c)
+fS2024
+# Calcolo proporzione numero di pixel rispetto al totale e percentuale
+totS2024 <- ncell(mS2024c) # calcolo del totale
+totS2024
+propS2024 = fS2024 / totS2024 # frequenza diviso tot
+percS2024 = propS2024 * 100 # percentuale
