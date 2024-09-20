@@ -78,3 +78,4 @@ mS2023c <- im.classify(set2023N, num_clusters=2)
 mS2024c <- im.classify(set2024N, num_clusters=2)
 
 stackcl <- c(set2023N[[1]], mS2023c[[1]], set2024N[[1]], mS2024c[[1]])
+plot(stackcl)
