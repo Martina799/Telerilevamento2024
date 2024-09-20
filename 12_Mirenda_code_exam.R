@@ -96,3 +96,7 @@ totS2024 <- ncell(mS2024c) # calcolo del totale
 totS2024
 propS2024 = fS2024 / totS2024 # frequenza diviso tot
 percS2024 = propS2024 * 100 # percentuale
+
+# calcolo il numero di pixel che costituiscono il campo lavico
+Campolavico = 336254-225896 
+Campolavico
