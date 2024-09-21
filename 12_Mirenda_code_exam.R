@@ -119,3 +119,20 @@ propcampo = Campolavico / totS2024 # frequenza diviso tot
 percCampolavico = propcampo* 100
 percCampolavico
 
+
+# Plotto un grafico (istogramma) utilizzando il pacchetto ggplot
+# ggplot --> funzione
+# tabout --> dati 
+# aes --> estetica/costruzione del grafico
+# geom_bar --> geometria del grafico, in questo caso istogramma
+# stat=identity --> valore come è stato inserito
+# fill --> colore
+ggplot(tabout, aes(x=classi, y=percentuale2023, color=classi)) + geom_bar(stat="identity", fill="white")
+ggplot(tabout, aes(x=classi, y=percentuale2024, color=classi)) + geom_bar(stat="identity", fill="white") 
+
+# Utilizzo il pacchetto patchwork che permette di mettere i grafici a confronto
+# correggo gli assi dei grafici con la funzione ylim(c(0,100)) --> y = da 0 a 100
+p1 <- ggplot(tabout, aes(x=classi, y=percentuale2023, color=classi)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100))
+p2 <- ggplot(tabout, aes(x=classi, y=percentuale2024, color=classi)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100)) 
+p1 + p2
+
