@@ -136,3 +136,32 @@ p1 <- ggplot(tabout, aes(x=classi, y=percentuale2023, color=classi)) + geom_bar(
 p2 <- ggplot(tabout, aes(x=classi, y=percentuale2024, color=classi)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100)) 
 p1 + p2
 
+
+
+# NDVI - Normalized Difference Vegetation Index
+
+# NDVI (nir - red / nir + red)
+ndviS2023 = (set2023N[[1]] - set2023N[[2]]) / (set2023N[[1]] + set2023N[[2]])
+ndviM2024 = (mar2024N[[1]] - mar2024N[[2]]) / (mar2024N[[1]] + mar2024N[[2]])
+ndviL2024 = (lug2024N[[1]] - lug2024N[[2]]) / (lug2024N[[1]] + lug2024N[[2]])
+ndviS2024 = (set2024N[[1]] - set2024N[[2]]) / (set2024N[[1]] + set2024N[[2]])
+
+dev.off()
+
+cl <- colorRampPalette(c("black", "blue", "yellow", "red")) (100)
+par(mfrow=c(2,2))
+plot(ndviS2023, col=cl)    
+plot(ndviM2024, col=cl) 
+plot(ndviL2024, col=cl) 
+plot(ndviS2024, col=cl)
+
+# Metodo più rapido per calcolare NDVI --> im.ndvi(immagine, 1, 2)
+NDVIS2023 <- im.ndvi(set2023N, 1, 2)
+NDVIM2024 <- im.ndvi(mar2024N, 1, 2)
+NDVIL2024 <- im.ndvi(lug2024N, 1, 2)
+NDVIS2024 <- im.ndvi(set2024N, 1, 2)
+
+stackNDVI <- c(NDVIS2023, NDVIM2024, NDVIL2024, NDVIS2024)
+plot(stackNDVI, col=cl)
+
+dev.off()
