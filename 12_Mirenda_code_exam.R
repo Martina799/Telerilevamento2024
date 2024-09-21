@@ -115,5 +115,7 @@ View(tabout) # visualizzo la tabella
 # calcolo il numero di pixel che costituiscono il campo lavico
 Campolavico = 289041-184947 
 Campolavico
-
+propcampo = Campolavico / totS2024 # frequenza diviso tot
+percCampolavico = propcampo* 100
+percCampolavico
 
