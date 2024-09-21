@@ -73,9 +73,11 @@ plot(stackdif, col=viridisc)
 
 
 # CLASSIFICAZIONE
+
+# classifico le immagini in 3 classi
 par(mfrow=c(1,2))
-mS2023c <- im.classify(set2023N, num_clusters=2)
-mS2024c <- im.classify(set2024N, num_clusters=2)
+mS2023c <- im.classify(set2023N, num_clusters=3)
+mS2024c <- im.classify(set2024N, num_clusters=3)
 
 # Settembre 2023:
 # Calcolo la frequenza, numero di pixel per ogni classe 
@@ -86,6 +88,7 @@ totS2023 <- ncell(mS2023c) # calcolo del totale
 totS2023
 propS2023 = fS2023 / totS2023 # frequenza diviso tot
 percS2023 = propS2023 * 100 # percentuale
+percS2023
 
 # Settembre 2024:
 # Calcolo la frequenza, numero di pixel per ogni classe 
@@ -96,7 +99,21 @@ totS2024 <- ncell(mS2024c) # calcolo del totale
 totS2024
 propS2024 = fS2024 / totS2024 # frequenza diviso tot
 percS2024 = propS2024 * 100 # percentuale
+percS2024
+
+# Ordino i dati ottenuti in una tabella 3x5
+classi<-c("suolo", "vegetazione", "campo lavico + H2O")
+frequenza2023<-c(358670, 309532, 184947)
+frequenza2024<-c(294505, 269603, 289041)
+percentuale2023<-c(42, 36, 21)
+percentuale2024<-c(34, 32, 34)
+# Uso la funzione data.farme per creare la tabella
+tabout <- data.frame(classi, frequenza2023, frequenza2024, percentuale2023, percentuale2024) # funzione che crea un dataframe --> tabella con classe (foresta/human), p1992 e p2006
+tabout
+View(tabout) # visualizzo la tabella
 
 # calcolo il numero di pixel che costituiscono il campo lavico
-Campolavico = 336254-225896 
+Campolavico = 289041-184947 
 Campolavico
+
+
