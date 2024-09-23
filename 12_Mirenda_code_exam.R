@@ -138,6 +138,7 @@ p1 + p2
 
 
 
+
 # NDVI - Normalized Difference Vegetation Index
 
 # NDVI (nir - red / nir + red)
@@ -165,3 +166,30 @@ stackNDVI <- c(NDVIS2023, NDVIM2024, NDVIL2024, NDVIS2024)
 plot(stackNDVI, col=cl)
 
 dev.off()
+
+
+
+
+# VARIABILITA'
+
+# Calcolo la variabilità dell'immagine utilizzando una singola banda (NIR, banda 1). 
+# Il calcolo sfrutta il metodo della "moving window": costruisco con una matrice da me impostata
+# (es: matrix(1/9,3,3) --> matrice 3x3, 1/9=numero associato alla metrice, 1 su 9 pixel) 
+# una finestra di calcolo che, applicata all'immagine, calcola la funzione che mi interessa,
+# (inquesto caso fun=sd --> deviazione standard) e l'associa al pixel centrale della mia finestra 3x3.
+# Il procedimento si ripete per tutta l'immagine traslando la finestra di un pixel.
+
+# Per fare tutto ciò utilizzo la funzione: FOCAL
+# funzione FOCAL: tira fuori delle statistiche all'interno di un gruppo di valori 
+# (definisce finestra e funzione che vogliamo usare)
+
+# Raggruppo tutte le immagini NIR
+stackNIR <- c(set2023N[[1]], mar2024N[[1]], lug2024N[[1]], set2024N[[1]])
+# definisco la palette di colori
+cl <- colorRampPalette(c("red", "orange", "yellow"))(100)
+plot(stackNIR, col=cl)
+
+# Utilizzo la funzione FOCAL e calcolo la deviazione standard
+sd <- focal(stackNIR, matrix(1/9, 3, 3), fun=sd)
+
+
