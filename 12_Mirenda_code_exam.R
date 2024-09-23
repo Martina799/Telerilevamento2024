@@ -191,5 +191,6 @@ plot(stackNIR, col=cl)
 
 # Utilizzo la funzione FOCAL e calcolo la deviazione standard
 sd <- focal(stackNIR, matrix(1/9, 3, 3), fun=sd)
+plot(sd)
 
 
