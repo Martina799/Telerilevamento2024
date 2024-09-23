@@ -207,3 +207,4 @@ bset2024 <- c(set2024[[3]], set2024[[2]], set2024[[1]], set2024N[[1]])
 
 # plotto l'immagine ricomposta "false color"
 plotRGB(bset2023, 4, 3, 2)
+pairs(bset2023)
