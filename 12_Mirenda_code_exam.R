@@ -136,6 +136,7 @@ p1 <- ggplot(tabout, aes(x=classi, y=percentuale2023, color=classi)) + geom_bar(
 p2 <- ggplot(tabout, aes(x=classi, y=percentuale2024, color=classi)) + geom_bar(stat="identity", fill="white") + ylim(c(0,100)) 
 p1 + p2
 
+dev.off()
 
 
 
@@ -147,7 +148,6 @@ ndviM2024 = (mar2024N[[1]] - mar2024N[[2]]) / (mar2024N[[1]] + mar2024N[[2]])
 ndviL2024 = (lug2024N[[1]] - lug2024N[[2]]) / (lug2024N[[1]] + lug2024N[[2]])
 ndviS2024 = (set2024N[[1]] - set2024N[[2]]) / (set2024N[[1]] + set2024N[[2]])
 
-dev.off()
 
 cl <- colorRampPalette(c("black", "blue", "yellow", "red")) (100)
 par(mfrow=c(2,2))
