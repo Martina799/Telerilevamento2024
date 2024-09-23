@@ -194,3 +194,16 @@ sd <- focal(stackNIR, matrix(1/9, 3, 3), fun=sd)
 plot(sd)
 
 
+
+
+# ANALISI MULTIVARIATA
+
+# Per ogni immagine vado a creare gli stack delle bande che mi interessano:
+# blu, verde, rosso, NIR
+bset2023 <- c(set2023[[3]], set2023[[2]], set2023[[1]], set2023N[[1]])
+bmar2024 <- c(mar2024[[3]], mar2024[[2]], mar2024[[1]], mar2024N[[1]])
+blug2024 <- c(lug2024[[3]], lug2024[[2]], lug2024[[1]], lug2024N[[1]])
+bset2024 <- c(set2024[[3]], set2024[[2]], set2024[[1]], set2024N[[1]])
+
+# plotto l'immagine ricomposta "false color"
+plotRGB(bset2023, 4, 3, 2)
