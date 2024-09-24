@@ -149,7 +149,7 @@ ndviL2024 = (lug2024N[[1]] - lug2024N[[2]]) / (lug2024N[[1]] + lug2024N[[2]])
 ndviS2024 = (set2024N[[1]] - set2024N[[2]]) / (set2024N[[1]] + set2024N[[2]])
 
 
-cl <- colorRampPalette(c("lightblue", "white", "darkgreen")) (100)
+cl <- colorRampPalette(c("lightyellow", "yellow", "white", "green", "darkgreen")) (100)
 par(mfrow=c(2,2))
 plot(ndviS2023, col=cl)    
 plot(ndviM2024, col=cl) 
