@@ -140,6 +140,7 @@ dev.off()
 
 
 
+
 # NDVI - Normalized Difference Vegetation Index
 
 # NDVI (nir - red / nir + red)
@@ -149,7 +150,7 @@ ndviL2024 = (lug2024N[[1]] - lug2024N[[2]]) / (lug2024N[[1]] + lug2024N[[2]])
 ndviS2024 = (set2024N[[1]] - set2024N[[2]]) / (set2024N[[1]] + set2024N[[2]])
 
 
-cl <- colorRampPalette(c("lightyellow", "yellow", "white", "green", "darkgreen")) (100)
+cl <- colorRampPalette(c("yellow", "lightyellow", "white", "lightgreen", "darkgreen")) (100)
 par(mfrow=c(2,2))
 plot(ndviS2023, col=cl)    
 plot(ndviM2024, col=cl) 
@@ -166,6 +167,37 @@ stackNDVI <- c(NDVIS2023, NDVIM2024, NDVIL2024, NDVIS2024)
 plot(stackNDVI, col=cl)
 
 dev.off()
+
+
+
+
+# Data la scarsa differenza di vegetazione tra le immagini precedenti, calcolo NDVI su nuove immagini:
+
+# True color
+ago162024 <- rast("2024-08-16-00_00_2024-08-16-23_59_Sentinel-2_L2A_True_color.jpg")
+ago262024 <- rast("2024-08-26-00_00_2024-08-26-23_59_Sentinel-2_L2A_True_color.jpg")
+par(mfrow=c(1,2))
+plotRGB(ago162024, 1, 2, 3)
+plotRGB(ago262024, 1, 2, 3)
+# False color
+ago162024N <- rast("2024-08-16-00_00_2024-08-16-23_59_Sentinel-2_L2A_False_color.jpg")
+ago262024N <- rast("2024-08-26-00_00_2024-08-26-23_59_Sentinel-2_L2A_False_color.jpg")
+par(mfrow=c(1,2))
+plotRGB(ago162024N, 1, 2, 3)
+plotRGB(ago262024N, 1, 2, 3)
+# NDVI
+ndviA1624 = (ago162024N[[1]] - ago162024N[[2]]) / (ago162024N[[1]] + ago162024N[[2]])
+ndviA2624 = (ago262024N[[1]] - ago262024N[[2]]) / (ago262024N[[1]] + ago262024N[[2]])
+par(mfrow=c(2,2))
+plot(ndviA1624, col=cl)    
+plot(ndviA2624, col=cl) 
+#plot
+par(mfrow=c(2,2))
+plotRGB(ago162024, 1, 2, 3)
+plot(ndviA1624, col=cl)
+plotRGB(ago262024, 1, 2, 3)
+plot(ndviA2624, col=cl) 
+
 
 
 
