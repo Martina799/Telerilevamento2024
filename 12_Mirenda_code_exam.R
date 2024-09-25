@@ -196,7 +196,7 @@ plot(ndviA2624, col=cl)
 # VARIABILITA'
 
 # Calcolo la variabilità dell'immagine utilizzando una singola banda (NIR, banda 1). 
-# Il calcolo sfrutta il metodo della "moving window": costruisco con una matrice da me impostata
+# Il calcolo sfrutta il metodo della "moving window": costruisco, con una matrice da me impostata
 # (es: matrix(1/9,3,3) --> matrice 3x3, 1/9=numero associato alla metrice, 1 su 9 pixel) 
 # una finestra di calcolo che, applicata all'immagine, calcola la funzione che mi interessa,
 # (inquesto caso fun=sd --> deviazione standard) e l'associa al pixel centrale della mia finestra 3x3.
