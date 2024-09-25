@@ -115,7 +115,7 @@ frequenza2024<-c(294505, 269603, 289041, Campolavico)
 percentuale2023<-c(42, 36, 21, 0)
 percentuale2024<-c(34, 32, 22, 12)
 # Uso la funzione data.farme per creare la tabella
-tabout <- data.frame(classi, frequenza2023, frequenza2024, percentuale2023, percentuale2024) # funzione che crea un dataframe --> tabella con classe (foresta/human), p1992 e p2006
+tabout <- data.frame(classi, frequenza2023, frequenza2024, percentuale2023, percentuale2024) 
 tabout
 View(tabout) # visualizzo la tabella
 
