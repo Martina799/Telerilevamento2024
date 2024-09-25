@@ -101,23 +101,23 @@ propS2024 = fS2024 / totS2024 # frequenza diviso tot
 percS2024 = propS2024 * 100 # percentuale
 percS2024
 
-# Ordino i dati ottenuti in una tabella 3x5
-classi<-c("suolo", "vegetazione", "campo lavico + H2O")
-frequenza2023<-c(358670, 309532, 184947)
-frequenza2024<-c(294505, 269603, 289041)
-percentuale2023<-c(42, 36, 21)
-percentuale2024<-c(34, 32, 34)
-# Uso la funzione data.farme per creare la tabella
-tabout <- data.frame(classi, frequenza2023, frequenza2024, percentuale2023, percentuale2024) # funzione che crea un dataframe --> tabella con classe (foresta/human), p1992 e p2006
-tabout
-View(tabout) # visualizzo la tabella
-
 # calcolo il numero di pixel che costituiscono il campo lavico
 Campolavico = 289041-184947 
 Campolavico
 propcampo = Campolavico / totS2024 # frequenza diviso tot
 percCampolavico = propcampo* 100
 percCampolavico
+
+# Ordino i dati ottenuti in una tabella 4x5
+classi<-c("suolo", "vegetazione", "H2O", "campo lavico")
+frequenza2023<-c(358670, 309532, 184947, 0)
+frequenza2024<-c(294505, 269603, 289041, Campolavico)
+percentuale2023<-c(42, 36, 21, 0)
+percentuale2024<-c(34, 32, 22, 12)
+# Uso la funzione data.farme per creare la tabella
+tabout <- data.frame(classi, frequenza2023, frequenza2024, percentuale2023, percentuale2024) # funzione che crea un dataframe --> tabella con classe (foresta/human), p1992 e p2006
+tabout
+View(tabout) # visualizzo la tabella
 
 
 # Plotto un grafico (istogramma) utilizzando il pacchetto ggplot
