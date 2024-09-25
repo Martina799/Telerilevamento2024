@@ -230,4 +230,5 @@ bset2024 <- c(set2024[[3]], set2024[[2]], set2024[[1]], set2024N[[1]])
 
 # plotto l'immagine ricomposta "false color"
 plotRGB(bset2023, 4, 3, 2)
+# Funzione che calcola la correlazione delle variabili (bande) usando l'indice di Pearson
 pairs(bset2023)
