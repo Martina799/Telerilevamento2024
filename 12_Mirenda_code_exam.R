@@ -176,22 +176,13 @@ dev.off()
 # True color
 ago162024 <- rast("2024-08-16-00_00_2024-08-16-23_59_Sentinel-2_L2A_True_color.jpg")
 ago262024 <- rast("2024-08-26-00_00_2024-08-26-23_59_Sentinel-2_L2A_True_color.jpg")
-par(mfrow=c(1,2))
-plotRGB(ago162024, 1, 2, 3)
-plotRGB(ago262024, 1, 2, 3)
 # False color
 ago162024N <- rast("2024-08-16-00_00_2024-08-16-23_59_Sentinel-2_L2A_False_color.jpg")
 ago262024N <- rast("2024-08-26-00_00_2024-08-26-23_59_Sentinel-2_L2A_False_color.jpg")
-par(mfrow=c(1,2))
-plotRGB(ago162024N, 1, 2, 3)
-plotRGB(ago262024N, 1, 2, 3)
 # NDVI
 ndviA1624 = (ago162024N[[1]] - ago162024N[[2]]) / (ago162024N[[1]] + ago162024N[[2]])
 ndviA2624 = (ago262024N[[1]] - ago262024N[[2]]) / (ago262024N[[1]] + ago262024N[[2]])
-par(mfrow=c(2,2))
-plot(ndviA1624, col=cl)    
-plot(ndviA2624, col=cl) 
-#plot
+ # Plot
 par(mfrow=c(2,2))
 plotRGB(ago162024, 1, 2, 3)
 plot(ndviA1624, col=cl)
