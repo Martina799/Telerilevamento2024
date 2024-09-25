@@ -199,7 +199,7 @@ plot(ndviA2624, col=cl)
 # Il calcolo sfrutta il metodo della "moving window": costruisco, con una matrice da me impostata
 # (es: matrix(1/9,3,3) --> matrice 3x3, 1/9=numero associato alla metrice, 1 su 9 pixel) 
 # una finestra di calcolo che, applicata all'immagine, calcola la funzione che mi interessa,
-# (inquesto caso fun=sd --> deviazione standard) e l'associa al pixel centrale della mia finestra 3x3.
+# (in questo caso fun=sd --> deviazione standard) e l'associa al pixel centrale della mia finestra 3x3.
 # Il procedimento si ripete per tutta l'immagine traslando la finestra di un pixel.
 
 # Per fare tutto ciò utilizzo la funzione: FOCAL
