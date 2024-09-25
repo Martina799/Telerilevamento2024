@@ -171,7 +171,7 @@ dev.off()
 
 
 
-# Data la scarsa differenza di vegetazione tra le immagini precedenti, calcolo NDVI su nuove immagini:
+# Calcolo NDVI su immagini risalenti ad agosto 2024 prima e durante l'ultima eruzione:
 
 # True color
 ago162024 <- rast("2024-08-16-00_00_2024-08-16-23_59_Sentinel-2_L2A_True_color.jpg")
