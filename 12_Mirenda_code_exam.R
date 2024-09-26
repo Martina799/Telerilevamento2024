@@ -228,8 +228,6 @@ bmar2024 <- c(mar2024[[3]], mar2024[[2]], mar2024[[1]], mar2024N[[1]])
 blug2024 <- c(lug2024[[3]], lug2024[[2]], lug2024[[1]], lug2024N[[1]])
 bset2024 <- c(set2024[[3]], set2024[[2]], set2024[[1]], set2024N[[1]])
 
-# plotto l'immagine ricomposta "false color"
-plotRGB(bset2023, 4, 3, 2)
 # Funzione che calcola la correlazione delle variabili (bande) usando l'indice di Pearson
 pairs(bset2023)
 pairs(bset2024)
